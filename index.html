@@ -32,9 +32,13 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 var map;
 function initMap() {
-  var listFail = getUrlParameter('fail');
-  alert(listFail);
- var listFailArr = listFail.split("|");
+  var listFail = getUrlParameter('F');
+  var listFailArr = [];
+  if (lisFail !== undefined){
+      listFailArr = listFail.split("|");
+  }
+  //alert(listFail);
+ 
  var bounds = new google.maps.LatLngBounds();
  console.log(listFailArr);
   //alert(lato);
@@ -52,11 +56,10 @@ for (var i = 0; i < listFailArr_count; i++) {
     locArr = fail.split(",");
     lato= parseFloat(locArr[0]);
     longo= parseFloat(locArr[1]);
-    alert('location:'+lato+' '+longo);
-    addMarker("fail",lato,longo,"12h13");
+    heure= parseFloat(locArr[2]);
+    addMarker("fail",lato,longo,heure);
     bounds.extend(new google.maps.LatLng(lato, longo));
- 
-}
+ }
 map.fitBounds(bounds);
 }
 
