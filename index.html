@@ -68,6 +68,12 @@ function initMap() {
       listCsfb2GArr = listCsfb2G.split("|");
   }
   
+  var listZone = getUrlParameter('Z');
+  var listZoneArr = [];
+  if (listZone !== undefined){
+      listZoneArr = listZone.split("|");
+  }
+  
   
   //alert(listFail);
  
@@ -184,7 +190,34 @@ for (var i = 0; i < listCsfb2GArr_count; i++) {
     }
  }
  
+var listZoneArr_count = listZoneArr.length;
+var planCoordinates = [];
+for (var i = 0; i < listZoneArr_count; i++) {
+    zone = listZoneArr[i];
+    //alert(Csfb3G);
+    if(zone !== ""){
+       zoneArr = zone.split(",");
+       console.log(zoneArr);
+        lato= parseFloat(zoneArr[0]);
+        longo= parseFloat(zoneArr[1]);
+        planCoordinates.push({lat:lato,lng:longo});
+        bounds.extend(new google.maps.LatLng(lato, longo));  
+    }
+ }
+ 
+ 
+ 
+ 
 map.fitBounds(bounds);
+var flightPath = new google.maps.Polyline({
+    path: planCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  flightPath.setMap(map);
 }
 
 function addMarker(type,lat,long,heure) {
