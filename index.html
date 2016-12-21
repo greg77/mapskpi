@@ -57,14 +57,14 @@ for (var i = 0; i < listFailArr_count; i++) {
 //        map: map
 //      });
       
-    addMarker("fail",lato,longo);
+    addMarker("fail",lato,longo,"12h13");
 
      
    
 }
 }
 
-function addMarker(type,lat,long) {
+function addMarker(type,lat,long,heure) {
    pinColor = "FE7569";
    customTitre = "";
    
@@ -86,7 +86,7 @@ function addMarker(type,lat,long) {
       });
   infowindow = new google.maps.InfoWindow();   
   google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent("<b>test</b><br />Latitude: "+lat+"");
+            infowindow.setContent("<b>"+customTitre+" at "+heure+"</b><br />Latitude: "+lat+"<br />Longitude"+long);
             infowindow.open(map, this);
           });
 }
