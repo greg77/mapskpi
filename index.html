@@ -49,8 +49,8 @@ alert('taille: '+listFailArr_count);
 for (var i = 0; i < listFailArr_count; i++) {
     fail = listFailArr[i];
     locArr = fail.split(",");
-    longo= parseFloat(locArr[0]);
-    lato= parseFloat(locArr[1]);
+    lato= parseFloat(locArr[0]);
+    longo= parseFloat(locArr[1]);
     alert('location:');
     marker = new google.maps.Marker({
         position: new google.maps.LatLng(lato, longo),
