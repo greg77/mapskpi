@@ -189,7 +189,7 @@ map.fitBounds(bounds);
 
 function addMarker(type,lat,long,heure) {
    pinColor = "FE7569";
-   customTitre = "";
+   var customTitre = "";
    
     if (new String(type).valueOf() == new String("fail").valueOf()){
         pinColor = "FF0000";
@@ -224,7 +224,7 @@ function addMarker(type,lat,long,heure) {
       });
   infowindow = new google.maps.InfoWindow();   
   google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent("<b>testo "+type+" at "+heure+"</b><br />Latitude: "+lat+"<br />Longitude: "+long);
+            infowindow.setContent("<b>testo "+customTitre+" at "+heure+"</b><br />Latitude: "+lat+"<br />Longitude: "+long);
             infowindow.open(map, this);
           });
 }
