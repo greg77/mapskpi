@@ -51,7 +51,7 @@ for (var i = 0; i < listFailArr_count; i++) {
     locArr = fail.split(",");
     lato= parseFloat(locArr[0]);
     longo= parseFloat(locArr[1]);
-    alert('location:');
+    alert('location:'+lato+' '+longo);
     marker = new google.maps.Marker({
         position: new google.maps.LatLng(lato, longo),
         map: map
