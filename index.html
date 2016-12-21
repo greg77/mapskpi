@@ -57,14 +57,14 @@ for (var i = 0; i < listFailArr_count; i++) {
 //        map: map
 //      });
       
-      addMarker(lato,longo);
+    addMarker("",lato,longo);
 
      
    
 }
 }
 
-function addMarker(lat,long) {
+function addMarker(type,lat,long) {
      marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, long),
         map: map
