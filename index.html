@@ -35,7 +35,8 @@ var map;
 function initMap() {
   var listFail = getUrlParameter('fail');
   alert(listFail);
-//  var listFailArr = listFail.split("|");
+ var listFailArr = listFail.split("|");
+ console.log(listFailArr);
   //alert(lato);
   //alert(longo);
   map = new google.maps.Map(document.getElementById('map'), {
