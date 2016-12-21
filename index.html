@@ -9,6 +9,62 @@
 
   <body>
     <div id="map"></div>
- test
+    <script src="./js/jquery.js"></script>
+    <script type="text/javascript" async>
+var lato;
+var longo;
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+
+
+var map;
+function initMap() {
+  var listFail = getUrlParameter('fail');
+  var listFailArr = listFail.split("|");
+  //alert(lato);
+  //alert(longo);
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 45.750000, lng: 4.850000},
+    zoom: 8
+  });
+  
+  alert('plop');
+  var listFailArr_count = listFailArr.length;
+for (var i = 0; i < listFailArr_count; i++) {
+    var fail = listFailArr[i];
+    var locArr = fail.split(",");
+    var longo= parseFloat(locArr[0]);
+    var lato= parseFloat(locArr[1]);
+    var myLatLng = {lat: lato, lng: longo};
+    var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'SRVCC KO'
+  });
+   
+}
+  
+  
+  
+}
+
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA6fTTJgYVEjmG01er3s3MNAtxVuWETqw&callback=initMap">
+    </script>
   </body>
 </html>
