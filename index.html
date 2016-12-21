@@ -30,7 +30,6 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 
-
 var map;
 function initMap() {
   var listFail = getUrlParameter('fail');
@@ -47,18 +46,31 @@ function initMap() {
 //  alert('plop');
   var listFailArr_count = listFailArr.length;
 for (var i = 0; i < listFailArr_count; i++) {
-    var fail = listFailArr[i];
-    var locArr = fail.split(",");
-    var longo= parseFloat(locArr[0]);
-    var lato= parseFloat(locArr[1]);
+    fail = listFailArr[i];
+    locArr = fail.split(",");
+    longo= parseFloat(locArr[0]);
+    lato= parseFloat(locArr[1]);
     var myLatLng = {lat: lato, lng: longo};
-    var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'SRVCC KO'
-  });
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lato, longo),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
    
 }
+}
+
+function addMarker(location) {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
 }
 
     </script>
