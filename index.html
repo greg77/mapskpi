@@ -224,7 +224,7 @@ function addMarker(type,lat,long,heure) {
       });
   infowindow = new google.maps.InfoWindow();   
   google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent("<b>"+marker.title+" at "+heure+"</b><br />Latitude: "+lat+"<br />Longitude: "+long);
+            infowindow.setContent("<b>test"+marker.title+" at "+heure+"</b><br />Latitude: "+lat+"<br />Longitude: "+long);
             infowindow.open(map, this);
           });
 }
