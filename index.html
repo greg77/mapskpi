@@ -45,18 +45,18 @@ function initMap() {
   });
   
 //  alert('plop');
-//  var listFailArr_count = listFailArr.length;
-//for (var i = 0; i < listFailArr_count; i++) {
-//    var fail = listFailArr[i];
-//    var locArr = fail.split(",");
-//    var longo= parseFloat(locArr[0]);
-//    var lato= parseFloat(locArr[1]);
-//    var myLatLng = {lat: lato, lng: longo};
-//    var marker = new google.maps.Marker({
-//    position: myLatLng,
-//    map: map,
-//    title: 'SRVCC KO'
-//  });
+  var listFailArr_count = listFailArr.length;
+for (var i = 0; i < listFailArr_count; i++) {
+    var fail = listFailArr[i];
+    var locArr = fail.split(",");
+    var longo= parseFloat(locArr[0]);
+    var lato= parseFloat(locArr[1]);
+    var myLatLng = {lat: lato, lng: longo};
+    var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'SRVCC KO'
+  });
    
 }
 
