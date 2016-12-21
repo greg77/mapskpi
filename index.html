@@ -52,21 +52,23 @@ for (var i = 0; i < listFailArr_count; i++) {
     lato= parseFloat(locArr[0]);
     longo= parseFloat(locArr[1]);
     alert('location:'+lato+' '+longo);
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lato, longo),
-        map: map
-      });
+//    marker = new google.maps.Marker({
+//        position: new google.maps.LatLng(lato, longo),
+//        map: map
+//      });
+      
+      addMarker(lato,longo);
 
      
    
 }
 }
 
-function addMarker(location) {
-        marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
+function addMarker(lat,long) {
+     marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, long),
+        map: map
+      });
 }
 
     </script>
