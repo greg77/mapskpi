@@ -65,9 +65,19 @@ for (var i = 0; i < listFailArr_count; i++) {
 }
 
 function addMarker(type,lat,long) {
-     marker = new google.maps.Marker({
+    var pinColor = "FE7569";
+   new google.maps.Size(21, 34),
+    new google.maps.Point(0,0),
+    new google.maps.Point(10, 34))
+    if (type == "fail"){
+        pinColor = "00FF00";
+    }
+   var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+    
+   marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, long),
-        map: map
+        map: map,
+        icon: pinImage
       });
 }
 
