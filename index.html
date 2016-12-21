@@ -44,6 +44,29 @@ function initMap() {
       listDropArr = listDrop.split("|");
   }
   
+  var listSrvccOk = getUrlParameter('SO');
+  var listSrvccOkArr = [];
+  if (listSrvccOk !== undefined){
+      listSrvccOkArr = listSrvccOk.split("|");
+  }
+  
+  var listSrvccNok = getUrlParameter('SN');
+  var listSrvccNokArr = [];
+  if (listSrvccNok !== undefined){
+      listSrvccNokArr = listSrvccNok.split("|");
+  }
+  
+  var listCsfb3G = getUrlParameter('C3');
+  var listCsfb3GArr = [];
+  if (listCsfb3G !== undefined){
+      listCsfb3GArr = listCsfb3G.split("|");
+  }
+  
+  var listCsfb2G = getUrlParameter('C3');
+  var listCsfb2GArr = [];
+  if (listCsfb2G !== undefined){
+      listCsfb2GArr = listCsfb2G.split("|");
+  }
   
   
   //alert(listFail);
@@ -92,6 +115,75 @@ for (var i = 0; i < listDropArr_count; i++) {
         bounds.extend(new google.maps.LatLng(lato, longo));  
     }
  }
+ 
+  var listSrvccOkArr_count = listSrvccOkArr.length;
+//alert('taille: '+listSrvccOkArr_count);
+for (var i = 0; i < listSrvccOkArr_count; i++) {
+    SrvccOk = listSrvccOkArr[i];
+    //alert(SrvccOk);
+    if(SrvccOk !== ""){
+       locArr = SrvccOk.split(",");
+       console.log(locArr);
+        lato= parseFloat(locArr[0]);
+        longo= parseFloat(locArr[1]);
+        heure= locArr[2];
+        //alert(heure);
+        addMarker("srvcc_ok",lato,longo,heure);
+        bounds.extend(new google.maps.LatLng(lato, longo));  
+    }
+ }
+ 
+   var listSrvccNokArr_count = listSrvccNokArr.length;
+//alert('taille: '+listSrvccNokArr_count);
+for (var i = 0; i < listSrvccNokArr_count; i++) {
+    SrvccNok = listSrvccNokArr[i];
+    //alert(SrvccNok);
+    if(SrvccNok !== ""){
+       locArr = SrvccNok.split(",");
+       console.log(locArr);
+        lato= parseFloat(locArr[0]);
+        longo= parseFloat(locArr[1]);
+        heure= locArr[2];
+        //alert(heure);
+        addMarker("srvcc_nok",lato,longo,heure);
+        bounds.extend(new google.maps.LatLng(lato, longo));  
+    }
+ }
+ 
+    var listCsfb3GArr_count = listCsfb3GArr.length;
+//alert('taille: '+listCsfb3GArr_count);
+for (var i = 0; i < listCsfb3GArr_count; i++) {
+    Csfb3G = listCsfb3GArr[i];
+    //alert(Csfb3G);
+    if(Csfb3G !== ""){
+       locArr = Csfb3G.split(",");
+       console.log(locArr);
+        lato= parseFloat(locArr[0]);
+        longo= parseFloat(locArr[1]);
+        heure= locArr[2];
+        //alert(heure);
+        addMarker("csfb_3G",lato,longo,heure);
+        bounds.extend(new google.maps.LatLng(lato, longo));  
+    }
+ }
+ 
+     var listCsfb2GArr_count = listCsfb2GArr.length;
+//alert('taille: '+listCsfb2GArr_count);
+for (var i = 0; i < listCsfb2GArr_count; i++) {
+    Csfb2G = listCsfb2GArr[i];
+    //alert(Csfb2G);
+    if(Csfb2G !== ""){
+       locArr = Csfb2G.split(",");
+       console.log(locArr);
+        lato= parseFloat(locArr[0]);
+        longo= parseFloat(locArr[1]);
+        heure= locArr[2];
+        //alert(heure);
+        addMarker("csfb_2G",lato,longo,heure);
+        bounds.extend(new google.maps.LatLng(lato, longo));  
+    }
+ }
+ 
 map.fitBounds(bounds);
 }
 
