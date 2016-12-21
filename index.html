@@ -84,6 +84,11 @@ function addMarker(type,lat,long) {
         icon: pinImage,
         title: customTitre
       });
+  infowindow = new google.maps.InfoWindow();   
+  google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent("test");
+            infowindow.open(map, this);
+          });
 }
 
     </script>
