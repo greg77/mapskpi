@@ -51,17 +51,20 @@ for (var i = 0; i < listFailArr_count; i++) {
     locArr = fail.split(",");
     lato= parseFloat(locArr[0]);
     longo= parseFloat(locArr[1]);
-    alert('location:'+lato+' '+longo);
-    addMarker('',lato,longo);
+    alert('location:'+lato+' '+long);
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lato, longo),
+        map: map
+      });
 
      
    
 }
 }
 
-function addMarker(type,lat,long) {
+function addMarker(location) {
         marker = new google.maps.Marker({
-            position: new google.maps.LatLng(lat, long);,
+            position: location,
             map: map
         });
 }
