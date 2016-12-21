@@ -86,7 +86,7 @@ function addMarker(type,lat,long) {
       });
   infowindow = new google.maps.InfoWindow();   
   google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent("test");
+            infowindow.setContent("<b>test</b><br />Latitude: "+lat+"");
             infowindow.open(map, this);
           });
 }
