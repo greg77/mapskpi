@@ -53,12 +53,14 @@ var listFailArr_count = listFailArr.length;
 alert('taille: '+listFailArr_count);
 for (var i = 0; i < listFailArr_count; i++) {
     fail = listFailArr[i];
-    locArr = fail.split(",");
-    lato= parseFloat(locArr[0]);
-    longo= parseFloat(locArr[1]);
-    heure= parseFloat(locArr[2]);
-    addMarker("fail",lato,longo,heure);
-    bounds.extend(new google.maps.LatLng(lato, longo));
+    if(fail !== ""){
+       locArr = fail.split(",");
+        lato= parseFloat(locArr[0]);
+        longo= parseFloat(locArr[1]);
+        heure= parseFloat(locArr[2]);
+        addMarker("fail",lato,longo,heure);
+        bounds.extend(new google.maps.LatLng(lato, longo));  
+    }
  }
 map.fitBounds(bounds);
 }
