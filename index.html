@@ -35,6 +35,7 @@ function initMap() {
   var listFail = getUrlParameter('fail');
   alert(listFail);
  var listFailArr = listFail.split("|");
+ var bounds = new google.maps.LatLngBounds();
  console.log(listFailArr);
   //alert(lato);
   //alert(longo);
@@ -52,16 +53,11 @@ for (var i = 0; i < listFailArr_count; i++) {
     lato= parseFloat(locArr[0]);
     longo= parseFloat(locArr[1]);
     alert('location:'+lato+' '+longo);
-//    marker = new google.maps.Marker({
-//        position: new google.maps.LatLng(lato, longo),
-//        map: map
-//      });
-      
     addMarker("fail",lato,longo,"12h13");
-
-     
-   
+    bounds.extend(new google.maps.LatLng(lato, longo));
+ 
 }
+map.fitBounds(bounds);
 }
 
 function addMarker(type,lat,long,heure) {
@@ -71,6 +67,21 @@ function addMarker(type,lat,long,heure) {
     if (new String(type).valueOf() == new String("fail").valueOf()){
         pinColor = "FF0000";
         customTitre =  'Failure';
+    }else if (new String(type).valueOf() == new String("drop").valueOf()){
+        pinColor = "FF00FF";
+        customTitre =  'Drop Call';
+    }else if (new String(type).valueOf() == new String("srvcc_ok").valueOf()){
+        pinColor = "00FF00";
+        customTitre =  'SRVCC Success';
+    }else if (new String(type).valueOf() == new String("srvcc_nok").valueOf()){
+        pinColor = "FFFF00";
+        customTitre =  'SRVCC Failure';
+    }else if (new String(type).valueOf() == new String("csfb_3G").valueOf()){
+        pinColor = "1E90FF";
+        customTitre =  'CSFallback to 3G';
+    }else if (new String(type).valueOf() == new String("csfb_2G").valueOf()){
+        pinColor = "00FFFF";
+        customTitre =  'CSFallback to 2G';
     }
     
    pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
@@ -86,7 +97,7 @@ function addMarker(type,lat,long,heure) {
       });
   infowindow = new google.maps.InfoWindow();   
   google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent("<b>"+customTitre+" at "+heure+"</b><br />Latitude: "+lat+"<br />Longitude"+long);
+            infowindow.setContent("<b>"+customTitre+" at "+heure+"</b><br />Latitude: "+lat+"<br />Longitude: "+long);
             infowindow.open(map, this);
           });
 }
