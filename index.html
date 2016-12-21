@@ -37,6 +37,15 @@ function initMap() {
   if (listFail !== undefined){
       listFailArr = listFail.split("|");
   }
+  
+  var listDrop = getUrlParameter('D');
+  var listDropArr = [];
+  if (listDrop !== undefined){
+      listDropArr = listDrop.split("|");
+  }
+  
+  
+  
   //alert(listFail);
  
  var bounds = new google.maps.LatLngBounds();
@@ -50,18 +59,36 @@ function initMap() {
   
 //  alert('plop');
 var listFailArr_count = listFailArr.length;
-alert('taille: '+listFailArr_count);
+//alert('taille: '+listFailArr_count);
 for (var i = 0; i < listFailArr_count; i++) {
     fail = listFailArr[i];
-    alert(fail);
+    //alert(fail);
     if(fail !== ""){
        locArr = fail.split(",");
        console.log(locArr);
         lato= parseFloat(locArr[0]);
         longo= parseFloat(locArr[1]);
         heure= locArr[2];
-        alert(heure);
+        //alert(heure);
         addMarker("fail",lato,longo,heure);
+        bounds.extend(new google.maps.LatLng(lato, longo));  
+    }
+ }
+ 
+ 
+ var listDropArr_count = listDropArr.length;
+//alert('taille: '+listDropArr_count);
+for (var i = 0; i < listDropArr_count; i++) {
+    Drop = listDropArr[i];
+    //alert(Drop);
+    if(Drop !== ""){
+       locArr = Drop.split(",");
+       console.log(locArr);
+        lato= parseFloat(locArr[0]);
+        longo= parseFloat(locArr[1]);
+        heure= locArr[2];
+        //alert(heure);
+        addMarker("drop",lato,longo,heure);
         bounds.extend(new google.maps.LatLng(lato, longo));  
     }
  }
