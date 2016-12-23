@@ -266,7 +266,7 @@ var flightPath = new google.maps.Polyline({
   
   var legend = document.getElementById('legend');
   var div_intr = document.createElement('div');
-  div_intr.innerHTML = "<h1><b>Session: </b>"+type+"<br /><b>Date: </b>"+date+"<br /></h1>";
+  div_intr.innerHTML = "<h4><b>Session: </b>"+decodeURI(type)+"<br /><b>Date: </b>"+date+"<br /></h4>";
   legend.appendChild(div_intr);
         for (var key in icons) {
           var type = icons[key];
