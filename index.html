@@ -88,6 +88,8 @@ function initMap() {
       listZoneArr = listZone.split("|");
   }
   
+  var date = getUrlParameter('date');
+  var type = getUrlParameter('type');
   
   //alert(listFail);
  
@@ -264,7 +266,7 @@ var flightPath = new google.maps.Polyline({
   
   var legend = document.getElementById('legend');
   var div_intr = document.createElement('div');
-  div_intr.innerHTML = "<b>Session: </b> VOLTE<br /><b>Date: </b> 12/12/2016";
+  div_intr.innerHTML = "<h1><b>Session: </b>"+type+"<br /><b>Date: </b>"+date+"<br /></h1>";
   legend.appendChild(div_intr);
         for (var key in icons) {
           var type = icons[key];
