@@ -266,7 +266,16 @@ var flightPath = new google.maps.Polyline({
   
   var legend = document.getElementById('legend');
   var div_intr = document.createElement('div');
-  div_intr.innerHTML = "<h4><b>Session: </b>"+decodeURI(type)+"<br /><b>Date: </b>"+date+"<br /></h4>";
+  type_str = "";
+  if (type.indexOf("HUA") >= 0){
+      type_str = "VOLTE HUA";
+  }else if (type.indexOf("NSN") >= 0){
+      type_str = "VOLTE NSN";
+  }else if (type.indexOf("RAN") >= 0){
+      type_str = "VOLTE Ran Sharing";
+  }
+  
+  div_intr.innerHTML = "<h4><b>Session: </b>"+type_str+"<br /><b>Date: </b>"+date+"<br /></h4>";
   legend.appendChild(div_intr);
         for (var key in icons) {
           var type = icons[key];
