@@ -82,30 +82,30 @@ function initMap() {
       listCsfb2GArr = listCsfb2G.split("|");
   }
   
-  var listEcho = getUrlParameter('EC');
-  var listEchoArr = [];
-  if (listEcho !== undefined){
-      listEchoArr = listEchoArr.split("|");
-  }
-  
-  
-  var listCrackling = getUrlParameter('CR');
-  var listCracklingArr = [];
-  if (listCrackling !== undefined){
-      listCracklingArr = listCracklingArr.split("|");
-  }
-  
-  var listBlank = getUrlParameter('BL');
-  var listBlankArr = [];
-  if (listBlank !== undefined){
-      listBlankArr = listBlankArr.split("|");
-  }
-  
-  var listCut = getUrlParameter('CU');
-  var listCutArr = [];
-  if (listCut !== undefined){
-      listCutArr = listCutArr.split("|");
-  }
+//  var listEcho = getUrlParameter('EC');
+//  var listEchoArr = [];
+//  if (listEcho !== undefined){
+//      listEchoArr = listEchoArr.split("|");
+//  }
+//  
+//  
+//  var listCrackling = getUrlParameter('CR');
+//  var listCracklingArr = [];
+//  if (listCrackling !== undefined){
+//      listCracklingArr = listCracklingArr.split("|");
+//  }
+//  
+//  var listBlank = getUrlParameter('BL');
+//  var listBlankArr = [];
+//  if (listBlank !== undefined){
+//      listBlankArr = listBlankArr.split("|");
+//  }
+//  
+//  var listCut = getUrlParameter('CU');
+//  var listCutArr = [];
+//  if (listCut !== undefined){
+//      listCutArr = listCutArr.split("|");
+//  }
   
   var listZone = getUrlParameter('Z');
   var listZoneArr = [];
@@ -229,7 +229,7 @@ for (var i = 0; i < listSrvccNokArr_count; i++) {
     }
  }
  
-    var listCsfb3GArr_count = listCsfb3GArr.length;
+var listCsfb3GArr_count = listCsfb3GArr.length;
 //alert('taille: '+listCsfb3GArr_count);
 for (var i = 0; i < listCsfb3GArr_count; i++) {
     Csfb3G = listCsfb3GArr[i];
@@ -262,77 +262,77 @@ for (var i = 0; i < listCsfb2GArr_count; i++) {
         bounds.extend(new google.maps.LatLng(lato, longo));  
     }
  }
- 
- var listCutArr_count = listCutArr.length;
-//alert('taille: '+listCsfb2GArr_count);
-for (var i = 0; i < listCutArr_count; i++) {
-    cut = listCutArr[i];
-    //alert(Csfb2G);
-    if(cut !== ""){
-       locArr = cut.split(",");
-       console.log(locArr);
-        lato= parseFloat(locArr[0]);
-        longo= parseFloat(locArr[1]);
-        heure= locArr[2];
-        //alert(heure);
-        addMarker("quality_cut",lato,longo,heure);
-        bounds.extend(new google.maps.LatLng(lato, longo));  
-    }
- }
- 
- 
- 
-var listBlankArr_count = listBlankArr.length;
-//alert('taille: '+listCsfb2GArr_count);
-for (var i = 0; i < listBlankArr_count; i++) {
-    blank = listBlankArr[i];
-    //alert(Csfb2G);
-    if(blank !== ""){
-       locArr = blank.split(",");
-       console.log(locArr);
-        lato= parseFloat(locArr[0]);
-        longo= parseFloat(locArr[1]);
-        heure= locArr[2];
-        //alert(heure);
-        addMarker("quality_blank",lato,longo,heure);
-        bounds.extend(new google.maps.LatLng(lato, longo));  
-    }
- }
- 
- var listEchoArr_count = listEchoArr.length;
-//alert('taille: '+listCsfb2GArr_count);
-for (var i = 0; i < listEchoArr_count; i++) {
-    echo = listEchoArr[i];
-    //alert(Csfb2G);
-    if(echo !== ""){
-       locArr = echo.split(",");
-       console.log(locArr);
-        lato= parseFloat(locArr[0]);
-        longo= parseFloat(locArr[1]);
-        heure= locArr[2];
-        //alert(heure);
-        addMarker("quality_echo",lato,longo,heure);
-        bounds.extend(new google.maps.LatLng(lato, longo));  
-    }
- }
- 
-var listCracklingArr_count = listCracklingArr.length;
-//alert('taille: '+listCsfb2GArr_count);
-for (var i = 0; i < listCracklingArr_count; i++) {
-    crackling = listCracklingArr[i];
-    //alert(Csfb2G);
-    if(crackling !== ""){
-       locArr = crackling.split(",");
-       console.log(locArr);
-        lato= parseFloat(locArr[0]);
-        longo= parseFloat(locArr[1]);
-        heure= locArr[2];
-        //alert(heure);
-        addMarker("quality_crackling",lato,longo,heure);
-        bounds.extend(new google.maps.LatLng(lato, longo));  
-    }
- }
- 
+// 
+//var listCutArr_count = listCutArr.length;
+////alert('taille: '+listCsfb2GArr_count);
+//for (var i = 0; i < listCutArr_count; i++) {
+//    cut = listCutArr[i];
+//    //alert(Csfb2G);
+//    if(cut !== ""){
+//       locArr = cut.split(",");
+//       console.log(locArr);
+//        lato= parseFloat(locArr[0]);
+//        longo= parseFloat(locArr[1]);
+//        heure= locArr[2];
+//        //alert(heure);
+//        addMarker("quality_cut",lato,longo,heure);
+//        bounds.extend(new google.maps.LatLng(lato, longo));  
+//    }
+// }
+// 
+// 
+// 
+//var listBlankArr_count = listBlankArr.length;
+////alert('taille: '+listCsfb2GArr_count);
+//for (var i = 0; i < listBlankArr_count; i++) {
+//    blank = listBlankArr[i];
+//    //alert(Csfb2G);
+//    if(blank !== ""){
+//       locArr = blank.split(",");
+//       console.log(locArr);
+//        lato= parseFloat(locArr[0]);
+//        longo= parseFloat(locArr[1]);
+//        heure= locArr[2];
+//        //alert(heure);
+//        addMarker("quality_blank",lato,longo,heure);
+//        bounds.extend(new google.maps.LatLng(lato, longo));  
+//    }
+// }
+// 
+// var listEchoArr_count = listEchoArr.length;
+////alert('taille: '+listCsfb2GArr_count);
+//for (var i = 0; i < listEchoArr_count; i++) {
+//    echo = listEchoArr[i];
+//    //alert(Csfb2G);
+//    if(echo !== ""){
+//       locArr = echo.split(",");
+//       console.log(locArr);
+//        lato= parseFloat(locArr[0]);
+//        longo= parseFloat(locArr[1]);
+//        heure= locArr[2];
+//        //alert(heure);
+//        addMarker("quality_echo",lato,longo,heure);
+//        bounds.extend(new google.maps.LatLng(lato, longo));  
+//    }
+// }
+// 
+//var listCracklingArr_count = listCracklingArr.length;
+////alert('taille: '+listCsfb2GArr_count);
+//for (var i = 0; i < listCracklingArr_count; i++) {
+//    crackling = listCracklingArr[i];
+//    //alert(Csfb2G);
+//    if(crackling !== ""){
+//       locArr = crackling.split(",");
+//       console.log(locArr);
+//        lato= parseFloat(locArr[0]);
+//        longo= parseFloat(locArr[1]);
+//        heure= locArr[2];
+//        //alert(heure);
+//        addMarker("quality_crackling",lato,longo,heure);
+//        bounds.extend(new google.maps.LatLng(lato, longo));  
+//    }
+// }
+// 
  
  
 var listZoneArr_count = listZoneArr.length;
